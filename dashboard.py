@@ -34,8 +34,10 @@ model.fit(X_model, y_model)
 #presonal info
 sex_options = data['Sex'].unique()
 ethnic_group_options = data['Ethnic group'].unique()
+
 # cluster countries
 countries = pd.read_csv("./country.csv")
+country_options = countries['value'].unique()
 developed_countries = []
 for i in range(countries.shape[0]):
     if countries['developed'][i]:
