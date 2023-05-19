@@ -33,19 +33,17 @@ model.fit(X_model, y_model)
 #get Labels for Categorical features
 #presonal info
 sex_options = data['Sex'].unique()
-country_options = countries['value']  # should be substituted with all 196 countries
 ethnic_group_options = data['Ethnic group'].unique()
-
-#family
-marital_satus_options = ['Married', 'Single']
-relationschip_options = data['Relationship'].unique()
-
 # cluster countries
 countries = pd.read_csv("./country.csv")
 developed_countries = []
 for i in range(countries.shape[0]):
     if countries['developed'][i]:
         developed_countries.append(countries['value'][i])
+
+#family
+marital_satus_options = ['Married', 'Single']
+relationschip_options = data['Relationship'].unique()
 
 #create app
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
