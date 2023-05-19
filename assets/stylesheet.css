@@ -1,0 +1,74 @@
+.header{
+    background-color: antiquewhite;
+    text-align: center;
+    min-height: 6vh;
+}
+.project_description{
+    font-size:medium;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.body{
+    margin-top: 2vh;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+.slider{
+    width: 90%;
+}
+.dropdown{
+    width: 90%;
+}
+.col_left{
+    width: 35%;
+    display: inline-block;
+    margin-left: 15%;
+}
+/* .personal_info{
+    margin-right: 30px;
+}
+.family_info{
+    margin-right: 30px;
+} */
+.col_right{
+    width: 35%;
+    display: inline-block;
+    margin-right: 15%;
+}
+.work_education_info{
+    margin-left: 50px;
+}
+.capital_explanation{
+    font-size:x-small;
+    width: 90%;
+}
+.capital_operations_info{
+    margin-left: 50px;
+}
+.num_input{
+    width: 150px;
+}
+.submit-button{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+.output{
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.explanation_text{
+    font-size: x-large;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.footer{
+    text-align:center;
+    min-height: 3vh;
+    margin-bottom: 0;
+}
+.link{
+    color: black;
+}
