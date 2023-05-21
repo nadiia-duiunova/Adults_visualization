@@ -291,6 +291,7 @@ app.layout = html.Div(
                 dcc.Link(
                     className = 'link',
                     href='https://github.com/nadiia95/Adults_pet_project', 
+                    target = '_blank',
                     children = [
                         html.Img(
                             alt = 'GitHub',
@@ -301,6 +302,7 @@ app.layout = html.Div(
                 dcc.Link(
                     className = 'link',
                     href='https://www.linkedin.com/in/nadiia-duiunova/', 
+                    target = '_blank',
                     children = [
                         html.Img(
                             alt = 'LinkedIn',
