@@ -32,7 +32,9 @@ X_model = model_data.drop(columns=[TARGET, 'Education-Num'])
 y_model = model_data[TARGET]
 
 # load model
-model = load('rand_forest_full.joblib')
+model_file = 'rand_forest_full.joblib'
+MODEL_DIR = 'model'
+model = load(os.path.join(MODEL_DIR, model_file))
 model.fit(X_model, y_model)
 
 #get Labels for Categorical features
@@ -411,7 +413,7 @@ def update_output_div(n_clicks, age_input, workclass_input, education_input, mar
                 # create a force plot and store it to assets directory
                 shap.force_plot(expected_value, new_shap_values, X_predictable, matplotlib=True, show=False)
 
-                assets_location = '/Users/nadiiaduiunova/adult_no_api/assets/graphs'
+                assets_location = '/assets/graphs'
 
                 # create unique name for every graph
                 timestamp = datetime.datetime.now()
