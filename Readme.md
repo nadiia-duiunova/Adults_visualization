@@ -1,6 +1,6 @@
 # Visualization for yearly income prediction
 
-This project is an interactive part of aa bigger [Adults project](https://github.com/nadiia95/Adults_pet_project), so you are very welcome to visit [Heroku](https://income-class-prediction.herokuapp.com/) and try it on your own
+This project is an interactive part of a bigger [Adults project](https://github.com/nadiia95/Adults_pet_project), so you are very welcome to visit [Heroku](https://income-class-prediction.herokuapp.com/) and try it on your own
 
 #### A short description of what this app does under the hood:
 * the Random Forest Classification model is used for training
