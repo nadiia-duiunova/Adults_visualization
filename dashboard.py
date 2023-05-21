@@ -1,6 +1,7 @@
 import dash
 import pandas as pd
 import numpy as np
+import os
 from dash import html, dcc, Input, Output, State
 import dash_bootstrap_components as dbc
 import shap
@@ -14,7 +15,11 @@ from common_functions import cluster_categorical, cluster_education
 matplotlib.use('agg')
 
 #load data from souce
-data = pd.read_csv("./clean_data.csv")
+DATA_DIR = 'data'
+ASSETS_DIR = 'assets'
+countries_file = 'country.csv'
+data_file = 'clean_data.csv'
+data = pd.read_csv(os.path.join(DATA_DIR, data_file))
 TARGET = 'Income'
 
 # create data to feed to model
@@ -36,7 +41,7 @@ sex_options = data['Sex'].unique()
 ethnic_group_options = data['Ethnic group'].unique()
 
 # cluster countries
-countries = pd.read_csv("./country.csv")
+countries = pd.read_csv(os.path.join(DATA_DIR, countries_file))
 country_options = countries['value'].unique()
 developed_countries = []
 for i in range(countries.shape[0]):
@@ -289,7 +294,7 @@ app.layout = html.Div(
                     children = [
                         html.Img(
                             alt = 'GitHub',
-                            src="/assets/github.svg"
+                            src=os.path.join(ASSETS_DIR, 'github.svg')
                         )
                     ]
                 ),
@@ -299,7 +304,7 @@ app.layout = html.Div(
                     children = [
                         html.Img(
                             alt = 'LinkedIn',
-                            src="/assets/linkedin.png"
+                            src=os.path.join(ASSETS_DIR, 'linkedin.png')
                         )
                     ]
                 )
@@ -404,12 +409,12 @@ def update_output_div(n_clicks, age_input, workclass_input, education_input, mar
                 # create a force plot and store it to assets directory
                 shap.force_plot(expected_value, new_shap_values, X_predictable, matplotlib=True, show=False)
 
-                assets_location = 'assets/graphs/'
+                assets_location = '/Users/nadiiaduiunova/adult_no_api/assets/graphs'
 
                 # create unique name for every graph
                 timestamp = datetime.datetime.now()
                 graph_name = f'{timestamp}.png'
-                graph_path = f'{assets_location}{graph_name}'
+                graph_path = os.path.join(assets_location, graph_name)
 
                 matplotlib.pyplot.savefig(graph_path)
                 
