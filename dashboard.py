@@ -362,6 +362,8 @@ def update_output_div(n_clicks, age_input, workclass_input, education_input, mar
                 
                 # create an explainer to get shapley values for every feature
                 explainer = shap.TreeExplainer(model['randomforestclassifier'])
+
+                #transform data from user to format, that explainer expects
                 data_point = model['columntransformer'].transform(X_predictable)
                 x_columns_names = model['columntransformer'].get_feature_names_out()
                 data_point = pd.DataFrame(data_point, columns = x_columns_names)
@@ -392,7 +394,7 @@ def update_output_div(n_clicks, age_input, workclass_input, education_input, mar
                 #append number of categories in each categorical feature
                 categorical_features_list = ['Workclass', 'Marital Status', 'Occupation', 'Relationship', 'Ethnic group', 'Sex', 'Country']
                 for cat in categorical_features_list:
-                    n = X_predictable[cat].nunique()-1 # one column was dropped for each categorical feature during transforming to aviod correlation
+                    n = X_model[cat].nunique()-1 # one column was dropped for each categorical feature during transforming to aviod correlation
                     n_categories.append(n)
 
                 # append last column (education), as it was skipped by column transformer
