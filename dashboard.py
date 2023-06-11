@@ -287,7 +287,7 @@ app.layout = html.Div(
             className = 'footer',
             children = [
                 html.P([
-                    'Developed by Nadiia Duiunonova in 2023 based on Adults dataset from ', 
+                    'Developed by Nadiia Duiunova in 2023 based on Adults dataset from ', 
                     html.A(children = ['USI'], href = 'https://archive.ics.uci.edu/ml/datasets/Adult', target="_blank", className='link')
                 ]),
                 dcc.Link(
