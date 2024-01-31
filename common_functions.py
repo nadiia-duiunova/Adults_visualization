@@ -37,17 +37,10 @@ def get_clean_data(url: str, drop_columns: list) -> pd.DataFrame:
         "Income",
     ]
 
-    df = pd.read_csv(url, header=None, names=adult_columns)
+    df = pd.read_csv(url, header=None, names=adult_columns).apply(lambda x: x.str.strip() if x.dtype == "object" else x)
     df = df.replace(to_replace= ' ?', value = np.nan)
     df = df.dropna(how='any').reset_index(drop=True)
     df = df.drop(columns=drop_columns)
-
-    categorical_features_list = ['Workclass', 'Education', 'Marital Status', 'Occupation', 'Relationship', 'Ethnic group', 'Sex', 'Country', 'Income']
-
-    for col in categorical_features_list:
-        col_num = df.columns.get_loc(col)
-        for row in range(df.shape[0]):
-            df.iloc[row,col_num] = df.iloc[row,col_num][1:]
 
     return df
 
@@ -174,4 +167,3 @@ def cluster_categorical(data: pd.DataFrame) -> pd.DataFrame:
                                                     ), 'Developed', 'Developing')
 
     return data
-
